@@ -1,21 +1,10 @@
 import { Phone } from 'lucide-react'
-
-const columns = [
-  {
-    title: 'Produkt',
-    links: ['Funkcje', 'Cennik', 'Integracje', 'API'],
-  },
-  {
-    title: 'Firma',
-    links: ['O nas', 'Blog', 'Kariera', 'Kontakt'],
-  },
-  {
-    title: 'Wsparcie',
-    links: ['Centrum pomocy', 'Dokumentacja', 'Status', 'Regulamin'],
-  },
-]
+import { useI18n } from '../i18n'
 
 export default function Footer() {
+  const { t } = useI18n()
+  const columns = t('footer.columns')
+
   return (
     <footer className="bg-gray-900 text-gray-400 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -25,7 +14,7 @@ export default function Footer() {
             AI Sekretarka
           </a>
           <p className="text-sm leading-relaxed">
-            Inteligentny asystent telefoniczny dla firm. Odbiera polaczenia 24/7, umawia wizyty i odpowiada na pytania klientow.
+            {t('footer.description')}
           </p>
         </div>
         {columns.map((col) => (
@@ -42,7 +31,7 @@ export default function Footer() {
         ))}
       </div>
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-sm text-center">
-        &copy; 2026 AI Sekretarka. Wszelkie prawa zastrzezone.
+        {t('footer.copyright')}
       </div>
     </footer>
   )
